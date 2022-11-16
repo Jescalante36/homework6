@@ -30,12 +30,13 @@
     // List of words
    anychart.onDocumentReady(function() {
         var data = [
-    {"x": "Soccer", "value": 265000000},
-    {"x": "Badminton", "value": 220000000},
-    {"x": "Volleyball", "value": 998000000},
-    {"x": "basketball", "value": 450000000}
+    {"x": "Soccer", "value": 265000000:"light blue"},
+    {"x": "Badminton", "value": 220000000: "Dark blue"},
+    {"x": "Volleyball", "value": 998000000: "Orange"},
+    {"x": "basketball", "value": 450000000: "Yellow"}
      ];
         var chart = anychart.tagCloud(data);
+       chart.title('5 most played sports')
         chart.angles([0])
         chart.colorRange(true);
         chart.colorRange().length('80%');
