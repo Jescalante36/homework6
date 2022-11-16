@@ -28,18 +28,29 @@
     <script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3.layout.cloud.js"></script>
 
     <!-- Create a div where the graph will take place -->
-    <div id="my_dataviz"></div>
+    <div id="cloud">
+    </div>
     <script>
     // List of words
-        var myWords = ["Hello", "Everybody", "How", "Are", "You", "Today", "It", "Is", "A", "Lovely", "Day", "I", "Love", "Coding", "In", "My", "Van", "Mate"]
-
+        var data = [
+    {"x": "Soccer", "value": 265000000},
+    {"x": "Badminton", "value": 220000000},
+    {"x": "Volleyball", "value": 998000000},
+    {"x": "basketball", "value": 450000000}
+     ];
+        var chart = anychart.tagCloud(data);
+        chart.angles([0])
+        chart.colorRange(true);
+        chart.colorRange().length('80%');
+        chart.container("container");
+        chart.draw();
         // set the dimensions and margins of the graph
         var margin = { top: 10, right: 10, bottom: 10, left: 10 },
-            width = 450 - margin.left - margin.right,
-            height = 450 - margin.top - margin.bottom;
+            width = 500 - margin.left - margin.right,
+            height = 500 - margin.top - margin.bottom;
 
         // append the svg object to the body of the page
-        var svg = d3.select("#my_dataviz").append("svg")
+        var svg = d3.select("#cloud").append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
             .append("g")
